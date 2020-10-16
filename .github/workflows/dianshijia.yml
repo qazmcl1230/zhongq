@@ -1,10 +1,10 @@
 
-name: jingxi
+name: dianshijia
 
 on:
   workflow_dispatch:
   schedule:
-     - cron: '5 5 * * *'
+     - cron: '*/29 4,12,23 * * *'
   watch:
     types: started
 jobs:
@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        JD_COOKIE: ${{ secrets.JD_COOKIE }}
+        DSJ_HEADERS: ${{ secrets.DSJ_HEADERS }}
+        DSJ_DRAWAL: ${{ secrets.DSJ_DRAWAL }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 10.x
@@ -22,11 +23,12 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【京喜】'
-        if: env.JD_COOKIE
+      - name: '运行 【电视家】'
+        if: env.DSJ_HEADERS
         run: |
-          node Task/jingxi.js
+          node Task/dianshijia.js
         env:
+          DSJ_NOTIFY_CONTROL: ${{ secrets.DSJ_NOTIFY_CONTROL }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}

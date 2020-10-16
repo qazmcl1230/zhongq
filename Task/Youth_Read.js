@@ -1,26 +1,32 @@
 /*
 更新时间: 2020-09-26 8:46
+Github Actions使用方法见[@lxk0301](https://raw.githubusercontent.com/lxk0301/scripts/master/githubAction.md) 使用方法大同小异
 
 请自行抓包，阅读文章和看视频，倒计时转一圈显示青豆到账即可，多看几篇文章和视频，获得更多包数据，抓包地址为"https://ios.baertt.com/v5/article/complete.json"，在Github Actions中的Secrets新建name为'YOUTH_READ'的一个值，拷贝抓包的请求体到下面Value的文本框中，添加的请求体越多，获得青豆次数越多，本脚本不包含任何推送通知
 
-多个请求体时用'&'号隔开" ‼️
+多个请求体时用'&'号或者换行隔开" ‼️
 
 */
 
 let s = 30000 //等待延迟30s
 const $ = new Env("中青看点")
 //const notify = $.isNode() ? require('./sendNotify') : '';
-let ReadArr = [], articlebody ='';
-let YOUTH_READ = [ '','',];
-  if (process.env.YOUTH_READ && process.env.YOUTH_READ.split('&') && process.env.YOUTH_READ.split('&').length > 0) {
+let ReadArr = [], YouthBody = "",readscore = 0;
+  if (process.env.YOUTH_READ && process.env.YOUTH_READ.indexOf('&') > -1) {
   YouthBody = process.env.YOUTH_READ.split('&');
+  console.log(`您选择的是用"&"隔开\n`)
+  }
+  else if (process.env.YOUTH_READ && process.env.YOUTH_READ.indexOf('\n') > -1) {
+  YouthBody = process.env.YOUTH_READ.split('\n');
+  console.log(`您选择的是用换行隔开\n`)
+  } else {
+  YouthBody = process.env.YOUTH_READ.split()
   }
   Object.keys(YouthBody).forEach((item) => {
         if (YouthBody[item]) {
           ReadArr.push(YouthBody[item])
         }
     })
-      console.log(`\n============ 脚本执行来自 Github Action  ==============\n`)
       console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
       console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
  !(async () => {
@@ -36,7 +42,7 @@ let YOUTH_READ = [ '','',];
     }
   await AutoRead();
  }
-   console.log(`-------------------------\n\n中青看点共完成${$.index}次阅读，阅读请求全部结束`)
+   console.log(`-------------------------\n\n中青看点共完成${$.index}次阅读，共计获得${readscore}个青豆，阅读请求全部结束`)
 })()
   .catch((e) => $.logErr(e))
   .finally(() => $.done())
@@ -57,7 +63,12 @@ function AutoRead() {
              console.log(data)
            if (readres.error_code == '0' && typeof readres.items.read_score === 'number') {
               console.log(`\n本次阅读获得${readres.items.read_score}个青豆，即将开始下次阅读\n`)
-            } 
+              readscore += readres.items.read_score
+            }
+            else if (readres.error_code == '0' && typeof readres.items.score === 'number') {
+              console.log(`\n本次阅读获得${readres.items.score}个青豆，即将开始下次阅读\n`)
+              readscore += readres.items.score
+            }
             else if (readres.success == false){
               console.log(`第${$.index}次阅读请求有误，请删除此请求`)
             }

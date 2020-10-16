@@ -9,7 +9,7 @@ name: txnews
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/7 1-14 * * *'
+     - cron: '*/7 * * * *'
   watch:
      types: started
     
@@ -17,6 +17,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
+    env:
+      TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
+      TXNEWS_COOKIE: ${{ secrets.TXNEWS_COOKIE }}
+      TXNEWS_VIDEO: ${{ secrets.TXNEWS_VIDEO }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 10.x
@@ -27,12 +31,10 @@ jobs:
         run: |
           npm install
       - name: '运行 【腾讯新闻】'
+        if: env.TXNEWS_COOKIE
         run: |
           node Task/txnews.js
         env:
-          TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
-          TXNEWS_COOKIE: ${{ secrets.TXNEWS_COOKIE }}
-          TXNEWS_VIDEO: ${{ secrets.TXNEWS_VIDEO }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
           TXNEWS_NOTIFY_CONTROL: ${{ secrets.TXNEWS_NOTIFY_CONTROL }}
