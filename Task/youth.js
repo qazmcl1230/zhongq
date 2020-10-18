@@ -165,6 +165,8 @@ if ($.isNode()&& $.time('HH')>20&&$.time('HH')<22){
 else if ($.time('HH')>4&&$.time('HH')<8){
   await endCard();
   }
+  await SevCont();
+  await ArticleShare();
   await openbox();
   await getAdVideo();
   await gameVideo();
@@ -175,7 +177,7 @@ else if ($.time('HH')>4&&$.time('HH')<8){
   await rotaryCheck();
   await earningsInfo();
   await showmsg();
-  if ($.isNode())
+  if ($.isNode()&&rotaryres.code !== 10010)
     if( rotarytimes && rotarytimes%50 == 0 && cash >= 10){
        await notify.sendNotify($.name + " " + nick, "您的余额约为"+cash+"元，已可以提现"+'\n'+`【收益总计】${signinfo.data.user.score}青豆  现金约${cash}元\n${detail}`)
     }
@@ -344,6 +346,43 @@ function Cardshare() {
         })
     })
 }
+
+function SevCont() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            $.post({url: `${YOUTH_HOST}PunchCard/luckdraw?`,
+              headers: JSON.parse(signheaderVal),
+            }, async(error, response, data) => {
+                sevres = JSON.parse(data)
+                if (sevres.code == 1) {
+          
+                    detail += `【七日签到】+${sevres.data.score}青豆 \n`
+          
+                }else if (sevres.code == 0){
+                     //detail += `【七日签到】${sevres.msg}\n`
+                   // $.log(`${boxres.msg}`)
+                }
+                resolve()
+            })
+        },s)
+    })
+}
+
+function ArticleShare() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const url = {
+                url: `https://focu.youth.cn/article/s?signature=0Z3Jgv96wqmVPeM7obRdNpHXgAmRhxNPJ6y4jpGDnANbo8KXQr&uid=46308484&phone_code=26170a068d9b9563e7028f197c8a4a2b&scid=33007686&time=1602937887&app_version=1.7.8&sign=d21dd80d0c6563f6f810dd76d7e0aef2`,
+                headers: JSON.parse(signheaderVal),
+            }
+            $.post(url, async(error, response, data) => {
+                //boxres = JSON.parse(data)
+                resolve()
+            })
+        },s)
+    })
+}
+
 
 //开启时段宝箱
 function openbox() {

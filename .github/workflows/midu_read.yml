@@ -6,7 +6,7 @@ name: midu_read
 on:
   workflow_dispatch:
   schedule:
-     - cron: '*/30 1-18/2 * * *'
+     - cron: '*/7 1-18 * * *'
 
 jobs:
   build:
@@ -17,10 +17,10 @@ jobs:
         MIDU_SIGN: ${{ secrets.MIDU_SIGN }}
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js 10.x
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
+          node-version: 14.x
       - name: npm install
         run: |
           npm install
