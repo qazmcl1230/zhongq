@@ -16,18 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-      YOUTH_READ11: ${{ secrets.YOUTH_READ111 }}
-      YOUTH_READ22: ${{ secrets.YOUTH_READ112 }}
-      YOUTH_READ33: ${{ secrets.YOUTH_READ121 }}
-      YOUTH_READ44: ${{ secrets.YOUTH_READ122 }}
-      YOUTH_READ55: ${{ secrets.YOUTH_READ211 }}
-      YOUTH_READ66: ${{ secrets.YOUTH_READ212 }}
-      YOUTH_READ77: ${{ secrets.YOUTH_READ221 }}
-      YOUTH_READ88: ${{ secrets.YOUTH_READ222 }}
-      YOUTH_READ99: ${{ secrets.YOUTH_READ211 }}
-      YOUTH_READ101: ${{ secrets.YOUTH_READ212 }}
-      YOUTH_READ111: ${{ secrets.YOUTH_READ221 }}
-      YOUTH_READ121: ${{ secrets.YOUTH_READ222 }}
+      YOUTH_READ1a: ${{ secrets.YOUTH_READ111 }}
+      YOUTH_READ2a: ${{ secrets.YOUTH_READ112 }}
+      YOUTH_READ3a: ${{ secrets.YOUTH_READ121 }}
+      YOUTH_READ4a: ${{ secrets.YOUTH_READ122 }}
+      YOUTH_READ5a: ${{ secrets.YOUTH_READ211 }}
+      YOUTH_READ6a: ${{ secrets.YOUTH_READ212 }}
+      YOUTH_READ7a: ${{ secrets.YOUTH_READ221 }}
+      YOUTH_READ8a: ${{ secrets.YOUTH_READ222 }}
+      YOUTH_READ9a: ${{ secrets.YOUTH_READ211 }}
+      YOUTH_READ10a: ${{ secrets.YOUTH_READ212 }}
+      YOUTH_READ11a: ${{ secrets.YOUTH_READ221 }}
+      YOUTH_READ12a: ${{ secrets.YOUTH_READ222 }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
