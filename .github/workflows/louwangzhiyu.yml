@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 中青阅读_大
+name: 漏网之鱼
 
 on:
   workflow_dispatch:
@@ -20,6 +20,15 @@ jobs:
       YOUTH_READ2: ${{ secrets.YOUTH_READ112 }}
       YOUTH_READ3: ${{ secrets.YOUTH_READ121 }}
       YOUTH_READ4: ${{ secrets.YOUTH_READ122 }}
+      YOUTH_READ5: ${{ secrets.YOUTH_READ211 }}
+      YOUTH_READ6: ${{ secrets.YOUTH_READ212 }}
+      YOUTH_READ7: ${{ secrets.YOUTH_READ221 }}
+      YOUTH_READ8: ${{ secrets.YOUTH_READ222 }}
+      YOUTH_READ9: ${{ secrets.YOUTH_READ311 }}
+      YOUTH_READ10: ${{ secrets.YOUTH_READ312 }}
+      YOUTH_READ11: ${{ secrets.YOUTH_READ321 }}
+      YOUTH_READ12: ${{ secrets.YOUTH_READ322 }}
+
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
@@ -30,30 +39,86 @@ jobs:
         run: |
           npm install
           
-      - name: '运行 【中青看点自动阅读一】'
-        if: env.YOUTH_READ1
-        run: |
-          node Task/Youth_Read.js
-        env:
-          YOUTH_READ: ${{ secrets.YOUTH_READ111 }}
+#      - name: '运行 【大一】'
+#        if: env.YOUTH_READ1
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ111 }}
 
-      - name: '运行 【中青看点自动阅读二】'
-        if: env.YOUTH_READ2
-        run: |
-          node Task/Youth_Read.js
-        env:
-          YOUTH_READ: ${{ secrets.YOUTH_READ112 }}
+#      - name: '运行 【大二】'
+#        if: env.YOUTH_READ2
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ112 }}
           
-      - name: '运行 【中青看点自动阅读三】'
-        if: env.YOUTH_READ3
-        run: |
-          node Task/Youth_Read.js
-        env:
-          YOUTH_READ: ${{ secrets.YOUTH_READ121 }}
+#      - name: '运行 【大三】'
+#        if: env.YOUTH_READ3
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ121 }}
           
-      - name: '运行 【中青看点自动阅读四】'
+      - name: '运行 【大四】'
         if: env.YOUTH_READ4
         run: |
           node Task/Youth_Read.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ122 }}
+ 
+#     - name: '运行 【中一】'
+#        if: env.YOUTH_READ5
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ211 }}
+
+#      - name: '运行 【中二】'
+#        if: env.YOUTH_READ6
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ212 }}
+          
+#      - name: '运行 【中三】'
+#        if: env.YOUTH_READ7
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ221 }}
+          
+      - name: '运行 【中四】'
+        if: env.YOUTH_READ8
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ222 }}
+
+#      - name: '运行 【小一】'
+#        if: env.YOUTH_READ9
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ311 }}
+
+#      - name: '运行 【小二】'
+#        if: env.YOUTH_READ10
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ312 }}
+          
+#      - name: '运行 【小三】'
+#        if: env.YOUTH_READ11
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ321 }}
+          
+#      - name: '运行 【小四】'
+#        if: env.YOUTH_READ12
+#        run: |
+#          node Task/Youth_Read.js
+#        env:
+#          YOUTH_READ: ${{ secrets.YOUTH_READ322 }}
