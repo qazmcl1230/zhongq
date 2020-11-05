@@ -16,18 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-      YOUTH_READ1: ${{ secrets.YOUTH_READ111 }}
-      YOUTH_READ2: ${{ secrets.YOUTH_READ112 }}
-      YOUTH_READ3: ${{ secrets.YOUTH_READ121 }}
-      YOUTH_READ4: ${{ secrets.YOUTH_READ122 }}
-      YOUTH_READ5: ${{ secrets.YOUTH_READ211 }}
-      YOUTH_READ6: ${{ secrets.YOUTH_READ212 }}
-      YOUTH_READ7: ${{ secrets.YOUTH_READ221 }}
-      YOUTH_READ8: ${{ secrets.YOUTH_READ222 }}
-      YOUTH_READ9: ${{ secrets.YOUTH_READ311 }}
-      YOUTH_READ10: ${{ secrets.YOUTH_READ312 }}
-      YOUTH_READ11: ${{ secrets.YOUTH_READ321 }}
-      YOUTH_READ12: ${{ secrets.YOUTH_READ322 }}
+      YOUTH_READ1: ${{ secrets.YOUTH_READ1111 }}
+      YOUTH_READ2: ${{ secrets.YOUTH_READ1121 }}
+      YOUTH_READ3: ${{ secrets.YOUTH_READ1211 }}
+      YOUTH_READ4: ${{ secrets.YOUTH_READ1221 }}
+      YOUTH_READ5: ${{ secrets.YOUTH_READ2111 }}
+      YOUTH_READ6: ${{ secrets.YOUTH_READ2121 }}
+      YOUTH_READ7: ${{ secrets.YOUTH_READ2211 }}
+      YOUTH_READ8: ${{ secrets.YOUTH_READ2221 }}
+      YOUTH_READ9: ${{ secrets.YOUTH_READ3111 }}
+      YOUTH_READ10: ${{ secrets.YOUTH_READ3121 }}
+      YOUTH_READ11: ${{ secrets.YOUTH_READ3211 }}
+      YOUTH_READ12: ${{ secrets.YOUTH_READ3221 }}
 
     steps:
       - uses: actions/checkout@v1
