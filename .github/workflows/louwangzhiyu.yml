@@ -10,7 +10,7 @@ on:
   watch:
     types: started
   repository_dispatch:
-    types: read
+    types: lwzy
 jobs:
   build:
     runs-on: ubuntu-latest
