@@ -39,26 +39,26 @@ jobs:
         run: |
           npm install
           
-#      - name: '运行 【大一】'
-#        if: env.YOUTH_READ1
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ111 }}
+      - name: '运行 【大一】'
+        if: env.YOUTH_READ1
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ111 }}
 
-#      - name: '运行 【大二】'
-#        if: env.YOUTH_READ2
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ112 }}
+      - name: '运行 【大二】'
+        if: env.YOUTH_READ2
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ112 }}
           
-#      - name: '运行 【大三】'
-#        if: env.YOUTH_READ3
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ121 }}
+      - name: '运行 【大三】'
+        if: env.YOUTH_READ3
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ121 }}
           
       - name: '运行 【大四】'
         if: env.YOUTH_READ4
@@ -67,26 +67,26 @@ jobs:
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ122 }}
  
-#     - name: '运行 【中一】'
-#        if: env.YOUTH_READ5
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ211 }}
+     - name: '运行 【中一】'
+        if: env.YOUTH_READ5
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ211 }}
 
-#      - name: '运行 【中二】'
-#        if: env.YOUTH_READ6
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ212 }}
+      - name: '运行 【中二】'
+        if: env.YOUTH_READ6
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ212 }}
           
-#      - name: '运行 【中三】'
-#        if: env.YOUTH_READ7
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ221 }}
+      - name: '运行 【中三】'
+        if: env.YOUTH_READ7
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ221 }}
           
       - name: '运行 【中四】'
         if: env.YOUTH_READ8
@@ -95,30 +95,30 @@ jobs:
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ222 }}
 
-#      - name: '运行 【小一】'
-#        if: env.YOUTH_READ9
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ311 }}
+      - name: '运行 【小一】'
+        if: env.YOUTH_READ9
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ311 }}
 
-#      - name: '运行 【小二】'
-#        if: env.YOUTH_READ10
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ312 }}
+      - name: '运行 【小二】'
+        if: env.YOUTH_READ10
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ312 }}
           
-#      - name: '运行 【小三】'
-#        if: env.YOUTH_READ11
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ321 }}
+      - name: '运行 【小三】'
+        if: env.YOUTH_READ11
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ321 }}
           
-#      - name: '运行 【小四】'
-#        if: env.YOUTH_READ12
-#        run: |
-#          node Task/Youth_Read.js
-#        env:
-#          YOUTH_READ: ${{ secrets.YOUTH_READ322 }}
+      - name: '运行 【小四】'
+        if: env.YOUTH_READ12
+        run: |
+          node Task/Youth_Read.js
+        env:
+          YOUTH_READ: ${{ secrets.YOUTH_READ322 }}
