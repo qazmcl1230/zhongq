@@ -29,7 +29,7 @@ jobs:
           npm install
           
       - name: '运行 【中青看点自动阅读一】'
-        if: env.YOUTH_READ
+        #if: env.YOUTH_READ
         run: |
           node Task/Youth_Read2.js
         env:
